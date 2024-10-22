@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class TUGAS {
+    public static void main(String[] args) {
+        int angkaRahasia = 7; 
+        int tebakan;
+        boolean berhasil = false;
+        int maxPercobaan = 3; 
+        int jumlahPercobaan = 0;
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Selamat datang di permainan Tebak Angka!");
+        System.out.println("Coba tebak angka rahasia antara 1 hingga 10.");
+        System.out.println("Kamu hanya punya 3 kali percobaan.");
+
+        while (jumlahPercobaan < maxPercobaan && !berhasil) {
+            System.out.print("Masukkan tebakanmu: ");
+            tebakan = input.nextInt();
+            jumlahPercobaan++; 
+
+            if (tebakan == angkaRahasia) {
+                System.out.println("Selamat! Tebakanmu benar.");
+                berhasil = true;
+            } else if (tebakan < angkaRahasia) {
+                System.out.println("Tebakanmu terlalu kecil.");
+            } else {
+                System.out.println("Tebakanmu terlalu besar.");
+            }
+
+            if (jumlahPercobaan == maxPercobaan && !berhasil) {
+                System.out.println("Kamu KALAH.");
+                System.out.println("Angka rahasianya adalah: " + angkaRahasia);
+            }
+        }
+
+        input.close();
+        System.out.println("Permainan selesai. Terima kasih telah bermain!");
+    }
+}
