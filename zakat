@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+class Wealth {
+    private double totalWealth;
+
+    public Wealth(double totalWealth) {
+        this.totalWealth = totalWealth;
+    }
+
+    public double calculateZakat() {
+        return totalWealth * 0.025;
+    }
+}
+
+public class PBOUNMUH {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double totalWealth = 0;
+        boolean validInput = false;
+
+        
+        while (!validInput) {
+            try {
+                System.out.print("Masukkan Jumlah Kekayaan Anda: ");
+                totalWealth = scanner.nextDouble();
+                validInput = true; 
+            } catch (Exception e) {
+                System.out.println("Input tidak valid. Silakan masukkan angka yang benar.");
+                scanner.next();
+            }
+        }
+
+        Wealth wealth = new Wealth(totalWealth);
+        
+        double zakat = wealth.calculateZakat();
+        
+        System.out.printf("Zakat yang harus anda bayar sebesar: %.2f\n", zakat);
+        
+        scanner.close();
+    }
+}
